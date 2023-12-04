@@ -14,7 +14,6 @@ class JobRepository extends Repository
 	public function findByName($name): array
 	{
 		$this->resetParameters();
-
 		return $this->sendRequest('GET', '/' . $this->uri . '/' . $name, [], null, $this->namespace);
 	}
 }
