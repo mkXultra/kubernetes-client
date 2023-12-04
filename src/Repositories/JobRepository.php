@@ -10,4 +10,11 @@ class JobRepository extends Repository
 	{
 		return new JobCollection($response['items']);
 	}
+
+	public function findByName($name): array
+	{
+		$this->resetParameters();
+
+		return $this->sendRequest('GET', '/' . $this->uri . '/' . $name, [], null, $this->namespace);
+	}
 }
